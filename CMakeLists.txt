@@ -25,10 +25,10 @@ include_directories(
 
 ### ViperLib
 cuda_add_library(ViperLib_static STATIC ${VIPER_SOURCES} ${VIPER_CUDA_SOURCES})
-target_link_libraries(ViperLib_static ${COMMON_LIBS} CGAL Boost::thread gmp mpfr)
+target_link_libraries(ViperLib_static ${COMMON_LIBS} CGAL::CGAL Boost::thread gmp mpfr)
 
 cuda_add_library(ViperLib SHARED ${VIPER_SOURCES} ${VIPER_CUDA_SOURCES})
-target_link_libraries(ViperLib ${COMMON_LIBS} CGAL Boost::thread gmp mpfr)
+target_link_libraries(ViperLib ${COMMON_LIBS} CGAL::CGAL Boost::thread gmp mpfr)
 
 ### SphereWeights
 add_executable(sphereweights ${SPHEREWEIGHTS_SOURCES})
@@ -37,11 +37,11 @@ target_include_directories(
     PRIVATE
     ${PROJECT_SOURCE_DIR}/SphereWeights
 )
-target_link_libraries(sphereweights ${COMMON_LIBS} CGAL Boost::thread tbb gmp mpfr GLEW GL glfw png ViperLib)
+target_link_libraries(sphereweights ${COMMON_LIBS} CGAL::CGAL Boost::thread tbb gmp mpfr GLEW GL glfw png ViperLib)
 
 ### Demo
 cuda_add_executable(demo ${DEMO_SOURCES})
-target_link_libraries(demo ${COMMON_LIBS} CGAL Boost::thread tbb gmp mpfr GLEW GL glfw png ViperLib)
+target_link_libraries(demo ${COMMON_LIBS} CGAL::CGAL Boost::thread tbb gmp mpfr GLEW GL glfw png ViperLib)
 # configure_file(${PROJECT_SOURCE_DIR}/data/octopus.obj ${PROJECT_BINARY_DIR}/octopus.obj)
 configure_file(${PROJECT_SOURCE_DIR}/data/texture.bin ${PROJECT_BINARY_DIR}/texture.bin COPYONLY)
 configure_file(${PROJECT_SOURCE_DIR}/data/mesh.bin ${PROJECT_BINARY_DIR}/mesh.bin COPYONLY)

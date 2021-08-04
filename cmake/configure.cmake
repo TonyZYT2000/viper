@@ -4,6 +4,7 @@ set(COMMON_LIBS ${COMMON_LIBS} pthread)
 find_package(Thrust REQUIRED)
 include_directories(${THRUST_INCLUDE_DIR})
 
+find_package(CGAL)
 #set(OpenGL_GL_PREFERENCE LEGACY)
 find_package(OpenGL REQUIRED)
 
@@ -30,5 +31,5 @@ set(
 
 set(
     CMAKE_CXX_FLAGS
-    "-std=c++11 -O3"
+    "-std=c++14 -O3"
 )
